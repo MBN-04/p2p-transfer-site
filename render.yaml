@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: p2p-transfer-cloud
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: SOURCE_ID
+        value: 9ccb1cf
+      - key: MAX_FILE_SIZE
+        value: 21474836480
+      - key: PUBLIC_BASE_URL
+        sync: false

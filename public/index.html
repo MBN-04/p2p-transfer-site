@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SendFiles Cloud Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">S</div>
+          <div class="brand-text">SendFiles Cloud</div>
+        </div>
+        <nav>
+          <a href="#upload">Send</a>
+          <a href="#download">Receive</a>
+          <a href="#info">Info</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow">cloud-backed demo</div>
+            <h1>Send files. Keep the transfer live.</h1>
+            <p>
+              Upload a file to the server, copy the public share link, then open the download page on another device or browser tab.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#upload">Upload file</a>
+              <a class="button button-secondary" href="#download">Download file</a>
+            </div>
+          </div>
+
+          <div class="status-panel">
+            <div class="status-head">
+              <span class="status-pill">LIVE</span>
+              <span class="status-dot"></span>
+            </div>
+            <div class="status-grid">
+              <div>
+                <label>Server</label>
+                <strong id="serverStatus">Checking...</strong>
+              </div>
+              <div>
+                <label>Source</label>
+                <strong id="sourceLabel">9ccb1cf</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="upload" class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="eyebrow">Upload</div>
+              <h2>Send a file</h2>
+            </div>
+          </div>
+
+          <form id="uploadForm" class="upload-form">
+            <label class="dropzone" for="fileInput">
+              <input id="fileInput" type="file" name="file" />
+              <div class="dropzone-icon">↑</div>
+              <div>
+                <strong>Drop files here or click to select</strong>
+                <span id="selectedFileLabel">No file selected</span>
+              </div>
+            </label>
+
+            <button type="submit" class="button button-primary wide">Create share link</button>
+          </form>
+
+          <div id="uploadResult" class="result-box hidden">
+            <h3>Share link created</h3>
+            <div class="link-box">
+              <span id="shareLink">Waiting for upload...</span>
+            </div>
+            <div class="actions-row">
+              <button id="copyLink" class="button button-secondary">Copy link</button>
+              <a id="downloadBtn" class="button button-primary" href="#" target="_blank" rel="noreferrer">Open download</a>
+            </div>
+            <div class="meta-row">
+              <span id="fileMeta">File details will appear here.</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="download" class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="eyebrow">Receive</div>
+              <h2>Download a file</h2>
+            </div>
+          </div>
+
+          <div class="receive-box">
+            <input id="receiveInput" type="text" placeholder="Paste 8-char file id or share URL" />
+            <button id="fetchFileBtn" class="button button-primary">Load file</button>
+          </div>
+
+          <div id="receiveResult" class="result-box hidden">
+            <h3>File ready</h3>
+            <div class="meta-row">
+              <span id="receiveMeta">No file selected.</span>
+            </div>
+            <div class="actions-row">
+              <a id="receiveDownloadLink" class="button button-primary" href="#" target="_blank" rel="noreferrer">Download</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="info" class="panel info-panel">
+          <div class="eyebrow">Info</div>
+          <h2>Cloud storage model</h2>
+          <ul>
+            <li>Uploads are stored on the server for the active transfer.</li>
+            <li>Each file receives a public share link and a short code.</li>
+            <li>Receiver downloads the file directly from the same hosted service.</li>
+            <li>Source ID: <strong>9ccb1cf</strong></li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
